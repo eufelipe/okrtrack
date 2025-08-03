@@ -12,6 +12,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [], 
-  "packageManager": "pnpm@10.8.0"
+  "keywords": [],
+  "packageManager": "pnpm@10.14.0",
+  "devDependencies": {
+    "turbo": "^2.5.5"
+  }
 }
