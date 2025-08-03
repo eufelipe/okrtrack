@@ -1,0 +1,13 @@
+{
+  "name": "@okrtrack/ts-config",
+  "version": "0.1.0",
+  "private": true,
+  "exports": {
+    "./base": "./tsconfig.base.json",
+    "./node": "./tsconfig.node.json"
+  },
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "typescript": "^5.9.2"
+  }
+}
