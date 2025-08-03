@@ -1,0 +1,25 @@
+{
+  "extends": "./tsconfig.node.json",
+  "compilerOptions": {
+    // Test-specific overrides
+    "noEmit": true,
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": false,
+    "isolatedModules": true,
+
+    // Less strict for tests
+    "exactOptionalPropertyTypes": false,
+    "noImplicitReturns": false,
+    "noUncheckedIndexedAccess": false,
+
+    "types": ["node"]
+  },
+  "include": [
+    "src/**/*",
+    "tests/**/*",
+    "**/*.test.ts",
+    "**/*.spec.ts", 
+    "vitest.config.ts"
+  ],
+  "exclude": ["dist", "node_modules", "coverage"]
+}

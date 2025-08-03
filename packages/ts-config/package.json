@@ -4,7 +4,8 @@
   "private": true,
   "exports": {
     "./base": "./tsconfig.base.json",
-    "./node": "./tsconfig.node.json"
+    "./node": "./tsconfig.node.json",
+    "./test": "./tsconfig.test.json"
   },
   "devDependencies": {
     "@types/node": "^24.1.0",
