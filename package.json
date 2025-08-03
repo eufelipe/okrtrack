@@ -14,7 +14,7 @@
   },
   "keywords": [],
   "packageManager": "pnpm@10.14.0",
-  "devDependencies": {
+  "devDependencies": { 
     "turbo": "^2.5.5"
   }
 }
