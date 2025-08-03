@@ -1,0 +1,17 @@
+{
+  "name": "okrtrack",
+  "version": "1.0.0",
+  "description": "OKRTrack is a platform for tracking and managing OKRs (Objectives and Key Results)",
+  "author": "Felipe Rosas <contato@eufelipe.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eufelipe/okrtrack.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [], 
+  "packageManager": "pnpm@10.8.0"
+}
