@@ -41,6 +41,16 @@
         "package.json"
       ]
     },
+    "test:ci": {
+      "dependsOn": ["^test"],
+      "inputs": [
+        "src/**",
+        "tests/**",
+        "vitest.config.*",
+        "tsconfig*.json",
+        "package.json"
+      ]
+    },
     "test:coverage": {
       "dependsOn": ["^build"],
       "outputs": ["coverage/**"],

@@ -18,7 +18,7 @@ pnpm type-check
 
 # Run tests for all packages
 echo "🧪 Running tests..."
-pnpm test
+pnpm test:ci
 
 # Build all packages to ensure they compile
 echo "🏗️  Building all packages..."
