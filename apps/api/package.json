@@ -1,0 +1,32 @@
+{
+  "name": "@okrtrack/api",
+  "description": "API V1 for OKRTrack – multi-tenant OKR management (Fastify + TypeScript + Prisma)",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Felipe Rosas <contato@eufelipe.com>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "format": "pnpm exec prettier --write \"src/**/*.ts\"",
+    "format:check": "pnpm exec prettier --check \"src/**/*.ts\"",
+    "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "test:ci": "vitest run",
+    "test:coverage": "vitest --coverage",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@okrtrack/eslint-config": "workspace:*",
+    "@okrtrack/prettier-config": "workspace:*",
+    "@okrtrack/ts-config": "workspace:*",
+    "eslint": "^9.32.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}
