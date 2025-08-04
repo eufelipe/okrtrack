@@ -59,6 +59,9 @@ export default tseslint.config(
     rules: {
       // TypeScript specific rules
       "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/no-inferrable-types": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "error",
+      "@typescript-eslint/no-unsafe-function-type": "error",
       "@typescript-eslint/no-unused-vars": [
         "error",
         {
