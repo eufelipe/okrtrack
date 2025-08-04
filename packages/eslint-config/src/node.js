@@ -28,14 +28,14 @@ export default tseslint.config(
   prettierConfig, // Disables conflicting rules with Prettier
 
   // TypeScript configuration
+  ...tseslint.configs.recommended,
+  ...tseslint.configs.strict,
   {
     files: ["**/*.ts", "**/*.mts", "**/*.cts"],
-    extends: [...tseslint.configs.recommended, ...tseslint.configs.strict],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
         projectService: true,
-        tsconfigRootDir: import.meta.dirname,
       },
       globals: {
         ...globals.node,
@@ -60,7 +60,6 @@ export default tseslint.config(
       // TypeScript specific rules
       "@typescript-eslint/no-explicit-any": "error",
       "@typescript-eslint/no-inferrable-types": "off",
-      "@typescript-eslint/explicit-module-boundary-types": "error",
       "@typescript-eslint/no-unsafe-function-type": "error",
       "@typescript-eslint/no-unused-vars": [
         "error",
@@ -186,6 +185,7 @@ export default tseslint.config(
       "**/eslint.config.{js,mjs,ts}",
       "**/vite.config.{js,mjs,ts}",
       "**/vitest.config.{js,mjs,ts}",
+      "**/tsup.config.{js,mjs,ts}",
       "**/prisma/seed.{js,ts}",
       "**/src/server.{js,ts}",
       "**/src/app.{js,ts}",

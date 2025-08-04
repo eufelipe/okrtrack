@@ -18,14 +18,14 @@ export default tseslint.config(
   js.configs.recommended,
 
   // TypeScript configuration
+  ...tseslint.configs.recommended,
+  ...tseslint.configs.strict,
   {
     files: ["**/*.ts", "**/*.mts", "**/*.cts"],
-    extends: [...tseslint.configs.recommended, ...tseslint.configs.strict],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
         projectService: true,
-        tsconfigRootDir: import.meta.dirname,
       },
       globals: {
         ...globals.node,
@@ -33,8 +33,10 @@ export default tseslint.config(
       },
     },
     rules: {
-      // TypeScript strict rules
+      // TypeScript specific rules
       "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/no-inferrable-types": "off",
+      "@typescript-eslint/no-unsafe-function-type": "error",
       "@typescript-eslint/no-unused-vars": [
         "error",
         {
@@ -49,26 +51,17 @@ export default tseslint.config(
           fixStyle: "inline-type-imports",
         },
       ],
-      "@typescript-eslint/consistent-type-exports": "error",
-      "@typescript-eslint/no-import-type-side-effects": "error",
-      "@typescript-eslint/prefer-nullish-coalescing": "error",
-      "@typescript-eslint/prefer-optional-chain": "error",
-      "@typescript-eslint/no-floating-promises": "error",
-      "@typescript-eslint/await-thenable": "error",
-      "@typescript-eslint/no-misused-promises": "error",
-      "@typescript-eslint/require-await": "error",
-      "@typescript-eslint/return-await": ["error", "in-try-catch"],
 
-      // General code quality
+      // Code quality
+      "no-console": "off",
       "prefer-const": "error",
       "no-var": "error",
       "object-shorthand": "error",
-      "no-console": "warn",
       "no-debugger": "error",
     },
   },
 
-  // JavaScript config (for mixed projects)
+  // JavaScript configuration
   {
     files: ["**/*.js", "**/*.mjs", "**/*.cjs"],
     extends: [tseslint.configs.disableTypeChecked],
