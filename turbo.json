@@ -1,14 +1,58 @@
 {
   "$schema": "https://turborepo.com/schema.json",
+  "ui": "tui",
   "tasks": {
     "build": {
-      "outputs": ["dist/**"]
-    },
-    "check-types": {
-      "dependsOn": ["^check-types"]
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "build/**"],
+      "inputs": ["src/**", "tsconfig*.json", "package.json"]
     },
     "dev": {
       "persistent": true,
+      "cache": false
+    },
+    "lint": {
+      "dependsOn": ["^lint"],
+      "inputs": ["src/**", "eslint.config.*", "tsconfig*.json", "package.json"]
+    },
+    "lint:fix": {
+      "dependsOn": ["^lint:fix"],
+      "inputs": ["src/**", "eslint.config.*", "tsconfig*.json", "package.json"],
+      "cache": false
+    },
+    "format": {
+      "inputs": ["src/**", ".prettierrc*", "package.json"],
+      "cache": false
+    },
+    "format:check": {
+      "inputs": ["src/**", ".prettierrc*", "package.json"]
+    },
+    "type-check": {
+      "dependsOn": ["^type-check"],
+      "inputs": ["src/**", "tsconfig*.json", "package.json"]
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "src/**",
+        "tests/**",
+        "vitest.config.*",
+        "tsconfig*.json",
+        "package.json"
+      ]
+    },
+    "test:coverage": {
+      "dependsOn": ["^build"],
+      "outputs": ["coverage/**"],
+      "inputs": [
+        "src/**",
+        "tests/**",
+        "vitest.config.*",
+        "tsconfig*.json",
+        "package.json"
+      ]
+    },
+    "clean": {
       "cache": false
     }
   }

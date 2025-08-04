@@ -4,18 +4,46 @@
   "description": "OKRTrack is a platform for tracking and managing OKRs (Objectives and Key Results)",
   "author": "Felipe Rosas <contato@eufelipe.com>",
   "license": "MIT",
-  "main": "index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/eufelipe/okrtrack.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "lint:fix": "turbo lint:fix",
+    "format": "turbo format",
+    "format:check": "turbo format:check",
+    "type-check": "turbo type-check",
+    "test": "turbo test",
+    "test:coverage": "turbo test:coverage",
+    "clean": "turbo clean && rm -rf node_modules",
+    "prepare": "husky install",
+    "commit": "cz"
   },
   "keywords": [],
-  "packageManager": "pnpm@10.14.0",
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.4",
+    "prettier": "^3.6.2",
     "turbo": "^2.5.5"
-  }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "engines": {
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm",
+    "pnpm": ">= 9.7.1",
+    "node": "20.19.0"
+  },
+  "packageManager": "pnpm@10.14.0"
 }

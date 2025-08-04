@@ -1,0 +1,31 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🚀 Running pre-push checks..."
+
+# Check if we're pushing to main/master (optional protection)
+branch=$(git rev-parse --abbrev-ref HEAD)
+protected_branch="main"
+
+if [ "$branch" = "$protected_branch" ]; then
+  echo "⚠️  Direct push to $protected_branch branch detected!"
+  echo "🔍 Running full test suite..."
+fi
+
+# Type check all packages
+echo "🔧 Type checking all packages..."
+pnpm type-check
+
+# Run tests for all packages
+echo "🧪 Running tests..."
+pnpm test
+
+# Build all packages to ensure they compile
+echo "🏗️  Building all packages..."
+pnpm build
+
+# Final lint check (in case someone bypassed pre-commit)
+echo "📝 Final lint check..."
+pnpm lint
+
+echo "✅ All pre-push checks passed! 🎉"
