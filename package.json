@@ -21,8 +21,12 @@
     "test:coverage": "turbo test:coverage",
     "test:ci": "turbo test:ci",
     "clean": "turbo clean && rm -rf node_modules",
-    "prepare": "husky install",
-    "commit": "cz"
+    "infra:up": "docker compose up -d",
+    "infra:up:admin": "docker compose --profile admin up -d",
+    "infra:down": "docker compose down --remove-orphans",
+    "infra:down:admin": "docker compose --profile admin down --remove-orphans",
+    "commit": "cz",
+    "prepare": "husky install"
   },
   "keywords": [],
   "devDependencies": {

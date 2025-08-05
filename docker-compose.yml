@@ -1,0 +1,58 @@
+version: "3.9"
+
+networks:
+  okrtrack:
+    driver: bridge
+
+services:
+  db:
+    image: mysql:8.4
+    container_name: db
+    restart: unless-stopped
+    networks: [okrtrack]
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-okrtrack}
+      MYSQL_USER: ${MYSQL_USER:-okrtrack}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-okrtrack}
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    restart: unless-stopped
+    networks: [okrtrack]
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis Insight (opt-in profile: admin)
+  redisinsight:
+    image: redislabs/redisinsight:latest
+    container_name: redisinsight
+    profiles: ["admin"]
+    networks: [okrtrack]
+    depends_on:
+      redis:
+        condition: service_healthy
+    ports:
+      - "5540:5540" # http://localhost:5540
+    volumes:
+      - redisinsight-data:/db
+
+# Volumes
+volumes:
+  mysql-data:
+  redisinsight-data:
