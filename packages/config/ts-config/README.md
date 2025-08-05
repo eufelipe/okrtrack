@@ -13,22 +13,27 @@ Shared TypeScript configurations for the OKRTrack monorepo.
 ## 📦 Available Configurations
 
 ### Base (`@okrtrack/ts-config/base`)
+
 Fundamental configuration with strict mode and ES modules.
 
-### Node.js (`@okrtrack/ts-config/node`) 
+### Node.js (`@okrtrack/ts-config/node`)
+
 Complete configuration for Node.js APIs with optimized build.
 
 ### Test (`@okrtrack/ts-config/test`)
+
 Configuration for tests with relaxed rules.
 
 ## 🎯 Usage
 
 ### 1. Install
-```bash 
+
+```bash
 pnpm add -D @okrtrack/ts-config
 ```
 
 ### 2. Create tsconfig.json
+
 ```json
 {
   "extends": "@okrtrack/ts-config/node",
@@ -42,6 +47,7 @@ pnpm add -D @okrtrack/ts-config
 ```
 
 ### 3. Add scripts to package.json
+
 ```json
 {
   "scripts": {
@@ -55,6 +61,7 @@ pnpm add -D @okrtrack/ts-config
 ## 🔧 Main Configurations
 
 ### tsconfig.base.json
+
 ```json
 {
   "target": "ES2022",
@@ -68,6 +75,7 @@ pnpm add -D @okrtrack/ts-config
 ```
 
 ### tsconfig.node.json
+
 ```json
 {
   "extends": "./tsconfig.base.json",
@@ -81,6 +89,7 @@ pnpm add -D @okrtrack/ts-config
 ## 🏗️ Clean Architecture Support
 
 ### Recommended Path Mapping
+
 ```json
 {
   "compilerOptions": {
@@ -96,17 +105,19 @@ pnpm add -D @okrtrack/ts-config
 ```
 
 ### Clean Imports
+
 ```typescript
 // ✅ Instead of:
-import { User } from '../../../domain/entities/user';
+import { User } from "../../../domain/entities/user";
 
 // ✅ Use:
-import { User } from '@/domain/entities/user';
+import { User } from "@/domain/entities/user";
 ```
 
 ## 🧪 Test Configuration
 
 ### tsconfig.test.json
+
 ```json
 {
   "extends": "@okrtrack/ts-config/test",
@@ -117,31 +128,35 @@ import { User } from '@/domain/entities/user';
 ```
 
 ### Usage with Vitest
+
 ```typescript
 // vitest.config.ts
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
     globals: true,
-    environment: 'node'
-  }
+    environment: "node",
+  },
 });
 ```
 
 ## ⚡ Configuration Benefits
 
 ### Maximum Type Safety
+
 - **noUncheckedIndexedAccess** - Prevents runtime errors
 - **exactOptionalPropertyTypes** - Strict type safety
 - **strict** - All checks enabled
 
 ### Performance
+
 - **verbatimModuleSyntax** - Better tree-shaking
 - **incremental** - Incremental builds
 - **NodeNext** - Modern module resolution
 
 ### Developer Experience
+
 - **Source maps** for debugging
 - **Declaration files** for IntelliSense
 - **Path mapping** for clean imports
@@ -149,13 +164,15 @@ export default defineConfig({
 ## 🎨 Tool Integration
 
 ### ESLint
+
 ```js
 // eslint.config.mjs
-import nodeConfig from '@okrtrack/eslint-config/node';
+import nodeConfig from "@okrtrack/eslint-config/node";
 export default nodeConfig;
 ```
 
 ### Prettier
+
 ```json
 {
   "prettier": "@okrtrack/prettier-config"
@@ -163,15 +180,16 @@ export default nodeConfig;
 ```
 
 ### Vitest
+
 ```typescript
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
     typecheck: {
-      tsconfig: './tsconfig.test.json'
-    }
-  }
+      tsconfig: "./tsconfig.test.json",
+    },
+  },
 });
 ```
 
@@ -200,13 +218,14 @@ apps/api/
 │   └── server.ts
 ├── tests/
 ├── tsconfig.json         # extends node
-├── tsconfig.test.json    # extends test  
+├── tsconfig.test.json    # extends test
 └── package.json
 ```
 
 ## 🚨 Troubleshooting
 
 ### Module resolution error
+
 ```bash
 # Check if you have "type": "module" in package.json
 {
@@ -215,6 +234,7 @@ apps/api/
 ```
 
 ### Path mapping not working
+
 ```bash
 # Install tsx for development
 pnpm add -D tsx

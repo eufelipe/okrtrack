@@ -5,7 +5,7 @@ Modern ESLint configuration (v9+) with flat config for Node.js APIs in the OKRTr
 ## 🚀 Features
 
 - **ESLint v9** with flat config
-- **TypeScript** native support  
+- **TypeScript** native support
 - **Node.js** optimized for APIs
 - **Security** rules integrated
 - **Prettier** compatibility
@@ -14,26 +14,31 @@ Modern ESLint configuration (v9+) with flat config for Node.js APIs in the OKRTr
 ## 📦 Configurations
 
 ### Base (`@okrtrack/eslint-config`)
+
 Essential configuration with TypeScript.
 
 ### Node.js (`@okrtrack/eslint-config/node`)
+
 Complete configuration for Node.js APIs with security.
 
 ## 🎯 Usage
 
 ### 1. Install
+
 ```bash
 pnpm add -D @okrtrack/eslint-config eslint
 ```
 
 ### 2. Create eslint.config.mjs
+
 ```js
-import nodeConfig from '@okrtrack/eslint-config/node';
+import nodeConfig from "@okrtrack/eslint-config/node";
 
 export default nodeConfig;
 ```
 
 ### 3. Add scripts to package.json
+
 ```json
 {
   "scripts": {
@@ -46,7 +51,7 @@ export default nodeConfig;
 ## 🔧 Included Plugins
 
 - **typescript-eslint** - Strict TypeScript rules
-- **eslint-plugin-n** - Node.js best practices  
+- **eslint-plugin-n** - Node.js best practices
 - **eslint-plugin-security** - API security
 - **eslint-plugin-import** - Import organization
 - **eslint-plugin-promise** - Async/await patterns
@@ -56,6 +61,7 @@ export default nodeConfig;
 ## 🛡️ Security
 
 Automatically detects:
+
 - SQL injection patterns
 - Path traversal vulnerabilities
 - Command injection via child_process
@@ -65,7 +71,7 @@ Automatically detects:
 ## ⚡ Performance
 
 - Flat config eliminates overhead
-- Automatic parallel execution  
+- Automatic parallel execution
 - Integrated smart caching
 - 35% faster than ESLint v8
 
@@ -86,24 +92,28 @@ This configuration is compatible with Prettier. Use together:
 ## 🔧 Main Rules
 
 ### TypeScript
+
 - Strict type checking
 - Consistent imports/exports
 - Async/await compliance
 - No explicit any
 
-### Node.js  
+### Node.js
+
 - Prefer node: protocol
 - No deprecated APIs
 - Promise-based APIs
 - No sync operations
 
 ### Security
+
 - Object injection detection
 - File system safety
 - Child process validation
 - Eval expression blocking
 
 ### Code Quality
+
 - Import organization
 - Modern JavaScript patterns
 - Consistent formatting
