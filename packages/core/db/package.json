@@ -13,7 +13,10 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
-    "db:push": "drizzle-kit push"
+    "db:push": "drizzle-kit push",
+    "db:seed": "tsx src/seed.ts",
+    "db:reset": "tsx src/scripts/reset.ts",
+    "db:fresh": "pnpm db:push && pnpm db:reset"
   },
   "dependencies": {
     "dotenv": "^17.2.1",
@@ -28,7 +31,6 @@
     "@okrtrack/ts-config": "workspace:*",
     "@types/node": "^24.2.0",
     "drizzle-kit": "^0.31.4",
-    "drizzle-seed": "^0.3.1",
     "tsup": "^8.5.0",
     "tsx": "^4.20.3"
   }

@@ -144,27 +144,12 @@ importers:
       drizzle-kit:
         specifier: ^0.31.4
         version: 0.31.4
-      drizzle-seed:
-        specifier: ^0.3.1
-        version: 0.3.1(drizzle-orm@0.44.4(mysql2@3.14.3))
       tsup:
         specifier: ^8.5.0
         version: 8.5.0(jiti@2.5.1)(postcss@8.5.6)(tsx@4.20.3)(typescript@5.9.2)(yaml@2.8.0)
       tsx:
         specifier: ^4.20.3
         version: 4.20.3
-
-  packages/core/infra:
-    devDependencies:
-      "@okrtrack/eslint-config":
-        specifier: workspace:*
-        version: link:../../config/eslint-config
-      "@okrtrack/prettier-config":
-        specifier: workspace:*
-        version: link:../../config/prettier-config
-      "@okrtrack/ts-config":
-        specifier: workspace:*
-        version: link:../../config/ts-config
 
 packages:
   "@babel/code-frame@7.27.1":
@@ -2257,17 +2242,6 @@ packages:
       sqlite3:
         optional: true
 
-  drizzle-seed@0.3.1:
-    resolution:
-      {
-        integrity: sha512-F/0lgvfOAsqlYoHM/QAGut4xXIOXoE5VoAdv2FIl7DpGYVXlAzKuJO+IphkKUFK3Dz+rFlOsQLnMNrvoQ0cx7g==,
-      }
-    peerDependencies:
-      drizzle-orm: ">=0.36.4"
-    peerDependenciesMeta:
-      drizzle-orm:
-        optional: true
-
   dunder-proto@1.0.1:
     resolution:
       {
@@ -4218,12 +4192,6 @@ packages:
         integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==,
       }
     engines: { node: ">=6" }
-
-  pure-rand@6.1.0:
-    resolution:
-      {
-        integrity: sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA==,
-      }
 
   queue-microtask@1.2.3:
     resolution:
@@ -6422,12 +6390,6 @@ snapshots:
     optionalDependencies:
       mysql2: 3.14.3
 
-  drizzle-seed@0.3.1(drizzle-orm@0.44.4(mysql2@3.14.3)):
-    dependencies:
-      pure-rand: 6.1.0
-    optionalDependencies:
-      drizzle-orm: 0.44.4(mysql2@3.14.3)
-
   dunder-proto@1.0.1:
     dependencies:
       call-bind-apply-helpers: 1.0.2
@@ -7663,8 +7625,6 @@ snapshots:
   prettier@3.6.2: {}
 
   punycode@2.3.1: {}
-
-  pure-rand@6.1.0: {}
 
   queue-microtask@1.2.3: {}
 
