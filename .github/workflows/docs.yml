@@ -45,16 +45,16 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Lint docs
-        run: pnpm docs:lint
+        run: cd apps/docs && pnpm lint
 
       - name: Type check docs
-        run: pnpm docs:type-check
+        run: cd apps/docs && pnpm type-check
 
       - name: Format check docs
-        run: pnpm docs:format:check
+        run: cd apps/docs && pnpm format:check
 
       - name: Build docs
-        run: pnpm docs:build
+        run: cd apps/docs && pnpm build
         env:
           NODE_ENV: production
 
