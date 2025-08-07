@@ -1,3 +1,3 @@
 export default {
-  index: 'Início', 
-}
+  index: 'Início',
+};

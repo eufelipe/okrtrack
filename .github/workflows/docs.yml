@@ -50,6 +50,9 @@ jobs:
       - name: Type check docs
         run: cd apps/docs && pnpm type-check
 
+      - name: Format docs
+        run: cd apps/docs && pnpm format
+
       - name: Format check docs
         run: cd apps/docs && pnpm format:check
 
