@@ -5,10 +5,18 @@
   "type": "module",
   "scripts": {
     "dev": "next dev -p 3001",
+    "docs:dev": "next dev -p 3001",
     "build": "next build",
+    "docs:build": "next build",
     "start": "next start -p 3001",
     "lint": "eslint . --fix",
-    "typecheck": "tsc --noEmit"
+    "docs:lint": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
+    "type-check": "tsc --noEmit",
+    "docs:type-check": "tsc --noEmit",
+    "format:check": "prettier --check .",
+    "docs:format:check": "prettier --check .",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "next": "^15.0.0",

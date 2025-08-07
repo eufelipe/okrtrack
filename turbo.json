@@ -19,6 +19,57 @@
         "theme.config.*"
       ]
     },
+    "docs:build": {
+      "dependsOn": ["^build"],
+      "outputs": ["out/**"],
+      "inputs": [
+        "src/**",
+        "pages/**",
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx",
+        "*.mdx",
+        "tsconfig*.json",
+        "package.json",
+        "next.config.*",
+        "theme.config.*"
+      ]
+    },
+    "docs:lint": {
+      "dependsOn": ["^lint"],
+      "inputs": [
+        "src/**",
+        "pages/**",
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx",
+        "*.mdx",
+        "eslint.config.*",
+        "tsconfig*.json",
+        "package.json"
+      ]
+    },
+    "docs:type-check": {
+      "dependsOn": ["^type-check"],
+      "inputs": [
+        "src/**",
+        "pages/**",
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx",
+        "*.mdx",
+        "tsconfig*.json",
+        "package.json",
+        "next.config.*",
+        "theme.config.*"
+      ]
+    },
+    "docs:format:check": {
+      "inputs": ["src/**", ".prettierrc*", "package.json"]
+    },
     "dev": {
       "persistent": true,
       "cache": false

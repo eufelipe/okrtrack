@@ -17,6 +17,7 @@ const withNextra = nextra({
 const nextConfig = {
   output: 'export' as const,
   trailingSlash: true,
+  basePath: process.env.NODE_ENV === 'production' ? '/okrtrack' : '',
   images: {
     unoptimized: true,
   },
