@@ -20,6 +20,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  deployments: write
 
 jobs:
   build:
@@ -39,12 +40,6 @@ jobs:
         with:
           node-version: "20.19.0"
           cache: "pnpm"
-
-      - name: Setup Pages
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -75,7 +70,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: "./apps/docs/out"
-          retention-days: 1
 
   deploy:
     needs: build
