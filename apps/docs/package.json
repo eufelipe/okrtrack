@@ -1,0 +1,31 @@
+{
+  "name": "@okrtrack/docs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001",
+    "lint": "eslint . --fix",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "^15.0.0",
+    "nextra": "^3.2.0",
+    "nextra-theme-docs": "^3.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@okrtrack/eslint-config": "workspace:*",
+    "@okrtrack/prettier-config": "workspace:*",
+    "@okrtrack/ts-config": "workspace:*",
+    "@types/node": "^22.0.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "eslint": "^9.0.0",
+    "typescript": "^5.6.0"
+  },
+  "prettier": "@okrtrack/prettier-config"
+}

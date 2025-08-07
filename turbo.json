@@ -4,8 +4,20 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", "build/**"],
-      "inputs": ["src/**", "tsconfig*.json", "package.json"]
+      "outputs": ["dist/**", "build/**", ".next/**", "out/**"],
+      "inputs": [
+        "src/**",
+        "pages/**",
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx",
+        "*.mdx",
+        "tsconfig*.json",
+        "package.json",
+        "next.config.*",
+        "theme.config.*"
+      ]
     },
     "dev": {
       "persistent": true,
@@ -13,7 +25,18 @@
     },
     "lint": {
       "dependsOn": ["^lint"],
-      "inputs": ["src/**", "eslint.config.*", "tsconfig*.json", "package.json"]
+      "inputs": [
+        "src/**",
+        "pages/**",
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx",
+        "*.mdx",
+        "eslint.config.*",
+        "tsconfig*.json",
+        "package.json"
+      ]
     },
     "lint:fix": {
       "dependsOn": ["^lint:fix"],
@@ -29,7 +52,35 @@
     },
     "type-check": {
       "dependsOn": ["^type-check"],
-      "inputs": ["src/**", "tsconfig*.json", "package.json"]
+      "inputs": [
+        "src/**",
+        "pages/**",
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx",
+        "*.mdx",
+        "tsconfig*.json",
+        "package.json",
+        "next.config.*",
+        "theme.config.*"
+      ]
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck"],
+      "inputs": [
+        "src/**",
+        "pages/**",
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx",
+        "*.mdx",
+        "tsconfig*.json",
+        "package.json",
+        "next.config.*",
+        "theme.config.*"
+      ]
     },
     "test": {
       "dependsOn": ["^build"],
